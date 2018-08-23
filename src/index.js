@@ -20,10 +20,10 @@ const defaults = {
 
 type Props = {
   children: Node,
-  mediaQueries?: {
+  mediaQueries: {
     [key: string]: string
   },
-  wait?: number
+  wait: number
 }
 
 type State = {
@@ -32,7 +32,7 @@ type State = {
   }
 }
 
-export default class MediaQueryProvider extends Component<Props, State> {
+export class MediaQueryProvider extends Component<Props, State> {
   static defaultProps = {
     mediaQueries: defaults,
     wait: 120

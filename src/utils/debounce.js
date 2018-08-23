@@ -1,9 +1,9 @@
 // @flow
 
-export default (fn, time) => {
+export default (fn: () => void, time: number) => {
   let timeout
 
-  return function() {
+  return function () {
     const functionCall = () => fn.apply(this, arguments)
 
     clearTimeout(timeout)
