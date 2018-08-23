@@ -1,5 +1,8 @@
 [ignore]
-./dist/.*
+<PROJECT_ROOT>/lib/.*
+.*/node_modules/eslint-plugin-jsx-a11y/flow/.*
+.*/node_modules/eslint-plugin-jsx-a11y/src/.*
+.*/node_modules/eslint-plugin-jsx-a11y/__mocks__/.*
 
 [include]
 
