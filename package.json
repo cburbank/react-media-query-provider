@@ -1,14 +1,21 @@
 {
   "name": "react-media-query-provider",
   "version": "0.1.0",
-  "description": "A component for accessing current media queries from inside React components",
+  "description": "A component for accessing current media queries from anywhere inside your component tree",
   "main": "lib/react-media-query-provider.cjs.js",
   "module": "lib/react-media-query-provider.esm.js",
   "author": "Chris Burbank",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rimraf lib && yarn rollup -c"
+    "build": "rimraf lib && yarn rollup -c && yarn copy-src",
+    "ci": "yarn lint && yarn flow-check",
+    "copy-src": "cp src/index.js lib/react-media-query-provider.cjs.js.flow && cp src/index.js lib/react-media-query-provider.js.flow",
+    "flow-check": "flow check",
+    "lint": "eslint src",
+    "precommit": "yarn ci",
+    "prepublish": "yarn build",
+    "preversion": "yarn ci"
   },
   "peerDependencies": {
     "react": ">=16.3.0",
@@ -31,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "flow-bin": "^0.79.1",
+    "husky": "^0.14.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
